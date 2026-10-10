@@ -1,0 +1,42 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Repository-local tooling
+/.gradle-codex/
+.idea/
+.vscode/
+*.swp
+
+# Backend / Gradle
+**/.gradle/
+**/build/
+**/out/
+*.class
+
+# Frontend / Node
+**/node_modules/
+**/dist/
+**/coverage/
+*.tsbuildinfo
+
+# Python / future AI service
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.venv/
+
+# Runtime files
+**/logs/
+**/tmp/
+**/uploads/
+*.log
+
+# Operating systems
+.DS_Store
+Thumbs.db
