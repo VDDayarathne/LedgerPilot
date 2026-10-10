@@ -1,32 +1,17 @@
-# React + TypeScript + Vite
+# LedgerPilot frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React 19, TypeScript, Vite 8 client for LedgerPilot Phase 1.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```powershell
+npm.cmd install
+npm.cmd run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The development server proxies `/api` to `http://localhost:8080`, so the default `VITE_API_URL=/api/v1` avoids cross-origin browser requests locally. Use an absolute HTTPS API URL only when the applications are intentionally deployed on separate origins; that origin must also be listed in the backend's `FRONTEND_ORIGIN` setting. The browser keeps access tokens only in memory; refresh credentials remain in backend-issued `HttpOnly` cookies. The client coordinates concurrent refresh attempts, retries a failed API call at most once, restores sessions on reload, and clears tenant state when selecting another organization.
+
+Checks:
+
+```powershell
+npm.cmd run lint
+npm.cmd run build
+```
